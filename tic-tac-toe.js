@@ -4,9 +4,10 @@ let indexVar = 0;
 let currentPlayer = "X";
 let gameBoard = Array(9).fill("");
 
-//Layout of board
+
 document.addEventListener('DOMContentLoaded', function(){
 
+    //Layout of board
     let board = document.getElementById('board');
 
     let divElements = board.querySelectorAll('div');
@@ -17,7 +18,18 @@ document.addEventListener('DOMContentLoaded', function(){
          indexVar ++;
     });
 
+    
     divElements.forEach(function(square){
+
+        //Exercise 3
+        square.addEventListener("mouseover", function(){
+            square.classList.add("hover");
+        });
+        square.addEventListener("mouseout", function(){
+            square.classList.remove("hover");
+        });
+
+        //Exercise 2
         square.addEventListener("click", function(){
 
             let squareId = square.id;
@@ -32,6 +44,9 @@ document.addEventListener('DOMContentLoaded', function(){
         });
     
     });
+
+    
+
 
 });
 
