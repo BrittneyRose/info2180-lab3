@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     let divElements = board.querySelectorAll('div');
     let stat = document.getElementById('status');
+    let button = document.querySelector('.btn');
 
     divElements.forEach(function(div) {
          div.classList.add("square");
@@ -32,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function(){
         });
 
         
-        //Exercise 2
+        //Exercise 2 and 6
         square.addEventListener("click", function(){
 
             let squareId = square.id;
@@ -50,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function(){
     
     });
 
-    
+    //exercise 4
     function theWinner(){
 
         let winRows = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6] ];
@@ -84,6 +85,7 @@ document.addEventListener('DOMContentLoaded', function(){
             }
         }
 
+        //compare the row to a row of X's or O's
         if (JSON.stringify(checkArray) === JSON.stringify(xArray)){
             return "X";
         }
@@ -95,6 +97,20 @@ document.addEventListener('DOMContentLoaded', function(){
         }
     }
    
+    //exercise 5
+    button.addEventListener("click", function(){
+
+        gameBoard = Array(9).fill("");
+        currentPlayer = "X";
+        
+        divElements.forEach(function(square) {
+            square.textContent = "";
+            square.classList.remove("X","O");
+        });
+
+        stat.textContent = "Move your mouse over a square and click to play an X or an O.";
+        stat.classList.remove("you-won");
+    });
 
 });
 
